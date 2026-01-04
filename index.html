@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title> RAVISHING SOUL – Luxury Perfumes</title>
+<title>Ravishing Soul – Luxury Perfumes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -13,70 +17,129 @@ body {
   color: white;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
+/* ================= HERO VIDEO ================= */
+.video-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-h1 {
-  font-size: 40px;
+.hero-content h1 {
+  font-size: 42px;
   margin-bottom: 10px;
 }
 
-.subtitle {
-  opacity: 0.8;
-  margin-bottom: 20px;
+.hero-content p {
+  opacity: 0.85;
 }
 
-.notice {
-  background: #1c1c1c;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  font-size: 14px;
+.cta-btn {
+  margin-top: 20px;
+  padding: 14px 32px;
+  background: #25D366;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 0 rgba(37,211,102,0.6);
+  transition: 0.3s;
 }
 
+.cta-btn:hover {
+  box-shadow: 0 0 25px rgba(37,211,102,0.7);
+}
+
+/* ================= SECTION ================= */
+.section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ================= PRODUCTS ================= */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
 }
 
 .product {
-  background: #1a1a1a;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
   padding: 15px;
-  border-radius: 15px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .product img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .product h3 {
   margin: 10px 0 5px;
 }
 
-.cta {
-  margin-top: 40px;
+.price {
+  opacity: 0.8;
 }
 
-.cta a {
+.buy-btn {
   display: inline-block;
-  padding: 16px 32px;
-  background: #25D366;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 30px;
+  margin-top: 10px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg,#d4af37,#b8962e);
+  color: black;
+  border-radius: 25px;
   text-decoration: none;
+  font-weight: bold;
 }
 
+/* ================= ANIMATIONS ================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= FOOTER ================= */
 footer {
-  margin-top: 40px;
-  font-size: 12px;
+  padding: 30px;
+  text-align: center;
+  font-size: 13px;
   opacity: 0.6;
 }
 </style>
@@ -84,56 +147,79 @@ footer {
 
 <body>
 
-<div class="container">
-  <h1>RAVISHING SOUL</h1>
-  <div class="subtitle">Luxury Eau De Parfum • 50ml</div>
+<!-- ================= HERO ================= -->
+<div class="video-hero">
+  <video autoplay muted loop playsinline>
+    <source src="videos/hero.mp4" type="video/mp4">
+  </video>
 
-  <div class="notice">
-    🚧 Website under construction <br>
-    We are taking orders directly via WhatsApp
-  </div>
-
-  <div class="products">
-    <div class="product">
-      <img src="images/pretty.jpg" alt="Pretty Perfume">
-      <h3>Pretty</h3>
-    </div>
-
-    <div class="product">
-      <img src="images/aven.jpg" alt="Aven Perfume">
-      <h3>Aven</h3>
-    </div>
-
-    <div class="product">
-      <img src="images/lucky.jpg" alt="Lucky Perfume">
-      <h3>Lucky</h3>
-    </div>
-
-    <div class="product">
-      <img src="images/opium.jpg" alt="Opium Perfume">
-      <h3>Opium</h3>
-    </div>
-
-    <div class="product">
-      <img src="images/wanted.jpg" alt="Wanted Perfume">
-      <h3>Wanted</h3>
-    </div>
-  </div>
-
-  <div class="cta">
-    <a href="https://wa.me/917396491027?text=Hi%20I%20want%20to%20order%20Ravishing%20Soul%20perfume"
-       target="_blank">
+  <div class="hero-content fade-up">
+    <h1>Ravishing Soul</h1>
+    <p>Luxury fragrances crafted to last</p>
+    <a class="cta-btn" href="https://wa.me/917396491027?text=Hi%20I%20want%20to%20order%20Ravishing%20Soul%20perfume" target="_blank">
       💬 Order on WhatsApp
     </a>
-    <p style="margin-top:10px; opacity:0.7;">
-      Fast replies • Limited stock • Direct brand orders
-    </p>
   </div>
-
-  <footer>
-    ©️ 2026 Ravishing Soul. All rights reserved.
-  </footer>
 </div>
+
+<!-- ================= PRODUCTS ================= -->
+<div class="section" id="products">
+  <h2 class="fade-up">Our Collection</h2>
+
+  <div class="products">
+    <div class="product fade-up">
+      <img src="images/pretty.jpg">
+      <h3>Pretty</h3>
+      <p class="price">₹999 • 50ml</p>
+      <a class="buy-btn" href="https://wa.me/917396491027?text=I%20want%20to%20order%20PRETTY%20(50ml)%20₹999" target="_blank">Order</a>
+    </div>
+
+    <div class="product fade-up">
+      <img src="images/aven.jpg">
+      <h3>Aven</h3>
+      <p class="price">₹1099 • 50ml</p>
+      <a class="buy-btn" href="https://wa.me/917396491027?text=I%20want%20to%20order%20AVEN%20(50ml)%20₹1099" target="_blank">Order</a>
+    </div>
+
+    <div class="product fade-up">
+      <img src="images/lucky.jpg">
+      <h3>Lucky</h3>
+      <p class="price">₹999 • 50ml</p>
+      <a class="buy-btn" href="https://wa.me/917396491027?text=I%20want%20to%20order%20LUCKY%20(50ml)%20₹999" target="_blank">Order</a>
+    </div>
+
+    <div class="product fade-up">
+      <img src="images/opium.jpg">
+      <h3>Opium</h3>
+      <p class="price">₹1199 • 50ml</p>
+      <a class="buy-btn" href="https://wa.me/917396491027?text=I%20want%20to%20order%20OPIUM%20(50ml)%20₹1199" target="_blank">Order</a>
+    </div>
+
+    <div class="product fade-up">
+      <img src="images/wanted.jpg">
+      <h3>Wanted</h3>
+      <p class="price">₹1099 • 50ml</p>
+      <a class="buy-btn" href="https://wa.me/917396491027?text=I%20want%20to%20order%20WANTED%20(50ml)%20₹1099" target="_blank">Order</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+©️ 2026 Ravishing Soul • Orders via WhatsApp only
+</footer>
+
+<!-- ================= JS ANIMATION ================= -->
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
