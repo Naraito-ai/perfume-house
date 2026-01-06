@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>RAVISHING SOUL — Street Luxury Fragrances</title>
+<title>RAVISHING SOUL — Luxury Fragrances</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Tailwind CDN -->
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -26,151 +26,175 @@ tailwind.config = {
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-<!-- Google Analytics (REPLACE G-XXXXXXX if you have it) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXX');
-</script>
-
 <style>
 html { scroll-behavior: smooth; }
+
+/* ===== LOGO GLOW ANIMATION ===== */
+.logo-glow {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
+  }
+  100% {
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
+  }
+}
+
+/* ===== LOGO REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  animation: revealIn 1.4s ease-out forwards;
+}
+
+@keyframes revealIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 </style>
 </head>
 
-<body class="bg-matte text-white">
+<body class="bg-matte text-white overflow-x-hidden">
 
 <!-- ================= NAV ================= -->
 <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/5 border-b border-white/10">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="font-bold tracking-ultra text-sm">RAVISHING SOUL</div>
+  <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
+
+    <!-- LOGO WITH GLOW -->
+    <img src="images/logo.png"
+         alt="Ravishing Soul Logo"
+         class="h-9 object-contain logo-glow">
+
     <div class="hidden md:flex gap-10 uppercase text-xs tracking-ultra">
       <a href="#collection" class="hover:text-electric">Collection</a>
-      <a href="#notes" class="hover:text-electric">Notes</a>
       <a href="#lab" class="hover:text-electric">The Lab</a>
     </div>
+
     <i class="fa-solid fa-bag-shopping"></i>
   </div>
 </nav>
 
-<!-- ================= HERO VIDEO ================= -->
-<section class="relative h-screen flex items-center justify-center">
+<!-- ================= HERO ================= -->
+<section class="relative min-h-[100svh] flex items-center justify-center pt-28">
 
 <video id="heroVideo" autoplay muted loop playsinline
-class="absolute inset-0 w-full h-full object-cover opacity-50">
+class="absolute inset-0 w-full h-full object-cover">
   <source src="videos/hero.mp4" type="video/mp4">
 </video>
 
+<div class="absolute inset-0 bg-black/65"></div>
+
 <button onclick="toggleSound()"
-class="absolute bottom-6 right-6 bg-black/60 px-4 py-2 rounded-full text-xs tracking-ultra">
+class="absolute bottom-5 right-5 bg-black/60 px-4 py-2 rounded-full text-xs tracking-ultra z-20">
 🔊 SOUND
 </button>
 
-<div class="relative z-10 text-center px-6 fade-up">
-  <h1 class="text-5xl md:text-7xl font-extrabold tracking-ultra uppercase">
-    Scent No.01<br>
-    <span class="text-electric">The Undercurrent</span>
-  </h1>
+<div class="relative z-10 text-center px-5 reveal">
+
+  <!-- HERO LOGO (REVEAL + GLOW) -->
+  <img src="images/logo.png"
+       class="mx-auto mb-10 w-56 sm:w-64 md:w-72 object-contain logo-glow"
+       alt="Ravishing Soul Logo">
 
   <a href="https://wa.me/917396491027?text=I%20want%20to%20order%20RAVISHING%20SOUL%20perfume"
-  onclick="gtag('event','whatsapp_click',{event_category:'CTA',event_label:'Hero'});"
-  target="_blank"
-  class="inline-block mt-10 bg-electric text-black px-10 py-4 font-bold tracking-ultra uppercase hover:scale-105 transition">
-  Order on WhatsApp
+     target="_blank"
+     class="inline-block mt-2 bg-electric text-black px-8 py-4 text-sm sm:text-base font-bold tracking-ultra uppercase hover:scale-105 transition">
+     Order on WhatsApp
   </a>
 </div>
 </section>
 
 <!-- ================= COLLECTION ================= -->
-<section id="collection" class="max-w-7xl mx-auto px-6 py-28">
-<h2 class="uppercase tracking-ultra mb-16">The Drop</h2>
+<section id="collection" class="max-w-7xl mx-auto px-5 py-24">
+<h2 class="uppercase tracking-ultra mb-12">The Collection</h2>
 
-<div class="grid md:grid-cols-2 gap-12">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-<div class="border border-white/10 p-8 hover:scale-105 transition fade-up">
-  <img src="images/midnight.jpg" class="mb-6 opacity-90">
-  <h3 class="uppercase tracking-ultra">Midnight Navy</h3>
-  <p class="text-white/60 mt-2">Dark • Marine • Addictive</p>
-  <a href="https://wa.me/917396491027?text=Order%20Midnight%20Navy%20Perfume"
-  onclick="gtag('event','whatsapp_click',{event_category:'CTA',event_label:'Midnight Navy'});"
-  target="_blank"
-  class="mt-6 inline-block border border-electric px-6 py-3 text-electric uppercase tracking-ultra hover:bg-electric hover:text-black transition">
-  Order Now
-  </a>
-</div>
-
-<div class="border border-white/10 p-8 hover:scale-105 transition fade-up">
-  <img src="images/solar.jpg" class="mb-6 opacity-90">
-  <h3 class="uppercase tracking-ultra">Solar Orange</h3>
-  <p class="text-white/60 mt-2">Bright • Volatile • Electric</p>
-  <a href="https://wa.me/917396491027?text=Order%20Solar%20Orange%20Perfume"
-  onclick="gtag('event','whatsapp_click',{event_category:'CTA',event_label:'Solar Orange'});"
-  target="_blank"
-  class="mt-6 inline-block border border-electric px-6 py-3 text-electric uppercase tracking-ultra hover:bg-electric hover:text-black transition">
-  Order Now
-  </a>
+<!-- PRODUCT TEMPLATE -->
+<div class="border border-white/10 p-7 hover:scale-105 transition">
+<img src="images/lucky.jpg" class="w-full max-h-[380px] object-contain mb-6">
+<h3 class="uppercase tracking-ultra">Lucky</h3>
+<p class="text-white/60 mt-2">Bright • Fresh • Confident</p>
+<a href="https://wa.me/917396491027?text=Order%20Lucky%20Perfume"
+target="_blank"
+class="mt-6 inline-block border border-electric px-6 py-3 text-electric uppercase tracking-ultra hover:bg-electric hover:text-black transition">
+Order Now
+</a>
 </div>
 
+<div class="border border-white/10 p-7 hover:scale-105 transition">
+<img src="images/aven.jpg" class="w-full max-h-[380px] object-contain mb-6">
+<h3 class="uppercase tracking-ultra">Aven</h3>
+<p class="text-white/60 mt-2">Green • Calm • Elegant</p>
+<a href="https://wa.me/917396491027?text=Order%20Aven%20Perfume"
+target="_blank"
+class="mt-6 inline-block border border-electric px-6 py-3 text-electric uppercase tracking-ultra hover:bg-electric hover:text-black transition">
+Order Now
+</a>
 </div>
-</section>
 
-<!-- ================= NOTES ================= -->
-<section id="notes" class="bg-white/5 py-28">
-<div class="max-w-7xl mx-auto px-6">
-<h2 class="uppercase tracking-ultra mb-16">Scent Profile</h2>
+<div class="border border-white/10 p-7 hover:scale-105 transition">
+<img src="images/wanted.jpg" class="w-full max-h-[380px] object-contain mb-6">
+<h3 class="uppercase tracking-ultra">Wanted</h3>
+<p class="text-white/60 mt-2">Dark • Bold • Addictive</p>
+<a href="https://wa.me/917396491027?text=Order%20Wanted%20Perfume"
+target="_blank"
+class="mt-6 inline-block border border-electric px-6 py-3 text-electric uppercase tracking-ultra hover:bg-electric hover:text-black transition">
+Order Now
+</a>
+</div>
 
-<div class="grid md:grid-cols-3 gap-10">
-<div class="border border-white/20 p-8 fade-up">
-<h4 class="uppercase tracking-ultra mb-4">Top</h4>
-<p class="text-white/70">Bergamot • Aldehydes</p>
+<div class="border border-white/10 p-7 hover:scale-105 transition">
+<img src="images/pretty.jpg" class="w-full max-h-[380px] object-contain mb-6">
+<h3 class="uppercase tracking-ultra">Pretty</h3>
+<p class="text-white/60 mt-2">Soft • Floral • Romantic</p>
+<a href="https://wa.me/917396491027?text=Order%20Pretty%20Perfume"
+target="_blank"
+class="mt-6 inline-block border border-electric px-6 py-3 text-electric uppercase tracking-ultra hover:bg-electric hover:text-black transition">
+Order Now
+</a>
 </div>
-<div class="border border-white/20 p-8 fade-up">
-<h4 class="uppercase tracking-ultra mb-4">Heart</h4>
-<p class="text-white/70">Iris • Leather • Marine</p>
-</div>
-<div class="border border-white/20 p-8 fade-up">
-<h4 class="uppercase tracking-ultra mb-4">Base</h4>
-<p class="text-white/70">Amber • Vetiver • Woods</p>
-</div>
-</div>
-</div>
-</section>
 
-<!-- ================= STORY ================= -->
-<section id="lab" class="py-32 text-center fade-up">
-<blockquote class="text-4xl md:text-5xl uppercase tracking-ultra font-bold">
-“Olfactory art for the modern renegade.”
-</blockquote>
+<div class="border border-white/10 p-7 hover:scale-105 transition">
+<img src="images/opium.jpg" class="w-full max-h-[380px] object-contain mb-6">
+<h3 class="uppercase tracking-ultra">Opium</h3>
+<p class="text-white/60 mt-2">Warm • Intense • Sensual</p>
+<a href="https://wa.me/917396491027?text=Order%20Opium%20Perfume"
+target="_blank"
+class="mt-6 inline-block border border-electric px-6 py-3 text-electric uppercase tracking-ultra hover:bg-electric hover:text-black transition">
+Order Now
+</a>
+</div>
+
+</div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="border-t border-white/10 py-16 text-center text-white/60 text-sm">
-RAVISHING SOUL ©️ 2026 • Orders via WhatsApp
+<footer class="border-t border-white/10 py-14 text-center text-white/60 text-sm">
+© 2026 Ravishing Soul • Orders via WhatsApp
 </footer>
 
 <!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/917396491027?text=Hi%20I%20want%20to%20order%20RAVISHING%20SOUL"
-onclick="gtag('event','whatsapp_click',{event_category:'CTA',event_label:'Floating'});"
+<a href="https://wa.me/917396491027"
 target="_blank"
-class="fixed bottom-6 right-6 z-50 bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition">
+class="fixed bottom-5 right-5 z-50 bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition">
 <i class="fa-brands fa-whatsapp text-3xl text-black"></i>
 </a>
 
-<!-- ================= JS ================= -->
+<!-- JS -->
 <script>
 function toggleSound(){
   const v=document.getElementById('heroVideo');
   v.muted=!v.muted; v.play();
 }
-const obs=new IntersectionObserver(e=>{
-  e.forEach(i=>i.isIntersecting&&i.target.classList.add('opacity-100','translate-y-0'))
-});
-document.querySelectorAll('.fade-up').forEach(el=>{
-  el.classList.add('opacity-0','translate-y-10','transition','duration-700');
-  obs.observe(el);
-});
 </script>
 
 </body>
